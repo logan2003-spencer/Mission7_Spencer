@@ -3,13 +3,24 @@
 @{
 }
 
+@* The html aspect of the form *@
 
+@Model Form
 <div class="text-center">
     <h1>Movie Form</h1>
     <br/>
     <form method="post">
-        <label asp-for="Category">Category</label>
-        <input asp-for="Category"/>
+        
+        <input type="hidden" asp-for="MovieId"/>
+        <br/>
+        <input type="hidden" asp-for="MovieId"/>
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId">
+            @foreach (Categories c in ViewBag.Categories)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+        </select>
         <br/>
         <label asp-for="Title">Title</label>
         <input asp-for="Title"/>
@@ -37,10 +48,15 @@
         <label asp-for="LentTo">Lent To:</label>
         <input asp-for="LentTo"/>
         <br/>
+        <label asp-for="CopiedToPlex">Copied To Plex</label>
+        <input asp-for="CopiedToPlex"/>
+        <br/>
         <label asp-for="Notes">Notes</label>
         <input asp-for="Notes"/>
         <br/>
-            
+
         <button type="submit">Submit the Movie</button>
+        
+        <div asp-validation-summary="All"></div>
     </form>
 </div>
