@@ -1,9 +1,11 @@
 
 @{
 }
+
+@* Grabs the data from the form to be a list  *@
 @model List<Form>
 
-
+@* The table is created *@
 <table class="table table-bordered">    
     <thead class="fw-bold">
     <tr>
@@ -20,6 +22,7 @@
     
     </thead>
     
+    @* For each data piece in the data set the respective column is added. *@
     @foreach (var x in Model)
     {
         <tbody>
@@ -35,6 +38,7 @@
             <td>@x.CopiedToPlex</td>
             <td>@x.Notes</td>
 
+            @* The edit and delete buttons are added *@
             <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-formId="@x.MovieId">Edit</a></td>
             <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-formId="@x.MovieId">Delete</a></td>
 

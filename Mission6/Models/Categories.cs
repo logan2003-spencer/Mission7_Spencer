@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mission6.Models;
 
+// Class called Categories for the second table
 public class Categories
 {
     [Key]

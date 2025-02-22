@@ -10,22 +10,19 @@ public class HomeController : Controller
 {
     private MovieFormContext _context;
     
-    public HomeController(MovieFormContext temp) // Constructor
+    public HomeController(MovieFormContext temp) 
     {
         _context = temp;
     }
-    // private readonly ILogger<HomeController> _logger;
-    //
-    // public HomeController(ILogger<HomeController> logger)
-    // {
-    //     _logger = logger;
-    // }
 
+    
+    // Route to the index page and passes the view
     public IActionResult Index()
     {
-        return View(); // Pass the list of movies to the view
+        return View(); 
     }
 
+    // Route to the privacy view.
     public IActionResult Privacy()
     {
         return View();
@@ -41,6 +38,7 @@ public class HomeController : Controller
     
     // This will send the information to the database
     [HttpPost]
+    
     public IActionResult MovieForm(Form response)
     {
         if (ModelState.IsValid)
@@ -61,7 +59,8 @@ public class HomeController : Controller
 
 
     }
-
+    
+    // Route to the WaitList view
     public IActionResult WaitList()
     {
         // Linq query, pulling from database in .net
@@ -71,6 +70,8 @@ public class HomeController : Controller
 
     
 [HttpGet]
+
+// Route to Edit the form
 public IActionResult Edit(int formId)
 {
     var recordToEdit = _context.Movies
@@ -117,11 +118,5 @@ public IActionResult Delete(Form form)
     return RedirectToAction("WaitList");
 }
 
-
-
-
 }
 
-// this will grab the actual column that relates to the field by using the foreign field
-// put the line below 
-// .Include(x => x.Major)

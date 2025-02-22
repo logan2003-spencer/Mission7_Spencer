@@ -5,9 +5,9 @@
 
 @* The html aspect of the form *@
 
-@Model Form
+@* @Model Form *@
 <div class="text-center">
-    <h1>Movie Form</h1>
+    <h1>Add a Movie</h1>
     <br/>
     <form method="post">
         
@@ -54,7 +54,7 @@
         <label asp-for="Notes">Notes</label>
         <input asp-for="Notes"/>
         <br/>
-
+        <br/>
         <button type="submit">Submit the Movie</button>
         
         <div asp-validation-summary="All"></div>

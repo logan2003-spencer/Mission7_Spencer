@@ -11,8 +11,10 @@ public class Form
     public int MovieId { get; set; }
     
     // The rest below are needed details for each movie added
-    [ForeignKey("CategoryId")]
     public int CategoryId { get; set; }
+    
+    [ForeignKey("CategoryId")]
+
     public Categories? Categories { get; set; }
     [Required(ErrorMessage = "Please enter the name of the movie.")]
     public string Title { get; set; }
@@ -32,6 +34,8 @@ public class Form
     
     public string?  LentTo { get; set; }
     
+    [Required(ErrorMessage = "Please enter if this movie has been copied to plex or not.")]
+
     public bool CopiedToPlex {get; set;}
     
     [StringLength(25)]
